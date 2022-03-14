@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useCallback } from "react";
+import EditName from "./EditName";
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [display, setDisplay] = useState(false);
+
+  const plusCount = () => {
+    setCount(count + 1);
+  };
+
+  const toggleDisplay = () => {
+    setDisplay(!display);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p></p>
+      <div>{count}</div>
+      <div onClick={plusCount}>countUp</div>
+      <EditName display={display} toggleDisplay={toggleDisplay} />
+    </>
   );
-}
+};
 
 export default App;
