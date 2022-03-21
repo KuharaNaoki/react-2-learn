@@ -2,6 +2,7 @@ import Home from "./component/Home";
 import Detail from "./component/Detail";
 import Page1 from "./component/page1";
 import Page2 from "./component/page2";
+import Page404 from "./component/page404";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,11 +15,12 @@ function App() {
           <Link to="/detail">Detail</Link>
         </div>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home />} />
           <Route path="/detail" element={<Detail />}>
             <Route path="page1" element={<Page1 />} />;
             <Route path="page2" element={<Page2 />} />;
           </Route>
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </>
